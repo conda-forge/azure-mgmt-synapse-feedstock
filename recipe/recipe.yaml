@@ -1,6 +1,6 @@
 context:
   name: azure-mgmt-synapse
-  version: 2.0.0
+  version: 2.1.0b7
 
 package:
   name: ${{ name|lower }}
@@ -8,12 +8,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/azure-mgmt-synapse-${{ version }}.zip
-    sha256: bec6bdfaeb55b4fdd159f2055e8875bf50a720bb0fce80a816e92a2359b898c8
-  - url: https://raw.githubusercontent.com/Azure/azure-sdk-for-python/50471e7f07b430ab0bbc1984cd2fc102d908de41/sdk/synapse/azure-mgmt-synapse/LICENSE
-    sha256: 7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744
+    sha256: f5d88154f594a1f11ad4b272b5a0ce53614a07b9c50e96b25a09a7ab7971e9d6
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -24,9 +22,10 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - msrest >=0.6.21
+    - msrest >=0.7.1
     - azure-common >=1.1,<2.dev0
-    - azure-mgmt-core >=1.2.0,<2.0.0
+    - azure-mgmt-core >=1.3.2,<2.0.0
+    - typing-extensions >=4.3.0
 
 tests:
   - python:
