@@ -11,13 +11,17 @@ source:
     sha256: f5d88154f594a1f11ad4b272b5a0ce53614a07b9c50e96b25a09a7ab7971e9d6
 
 build:
+<<<<<<< HEAD
   number: 1
+=======
+  number: 2
+>>>>>>> origin/main
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
@@ -33,6 +37,7 @@ tests:
         - azure.mgmt.synapse
         - azure.mgmt.synapse.aio
       pip_check: true
+      python_version: ${{ python_min }}.*
 
 about:
   summary: Microsoft Azure Synapse Management Client Library for Python
